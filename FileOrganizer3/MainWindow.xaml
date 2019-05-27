@@ -5,8 +5,97 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FileOrganizer3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="File Transfer Wizard" Height="350" Width="475">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <!-- Row1 -->
+        <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="10">
+            <TextBlock Text="Select Source Folder" Margin="0, 0, 10, 10"/>
+            <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+                <Button x:Name="btnOpenFile1" Click="btnOpenFile_Click"
+                        MinWidth="75" Height="25" Margin="24, 0, 0, 0" >Select</Button>
+            </WrapPanel>
+        </DockPanel>
+        <TextBox Grid.Row="1" Grid.Column="4" Margin="10, 10, 10, 20"  Name="txtEditor1" />
+
+
+        <!-- Row2 -->
+        <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="10">
+            <TextBlock Text="Select Destination Folder" Margin="0, 0, 10, 10" />
+            <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+                <Button Name="btnOpenFile2" Height="25" Click="btnOpenFile_Click" MinWidth="75" >Select</Button>
+            </WrapPanel>
+        </DockPanel>
+        <TextBox Grid.Row="2" Grid.Column="4" MinWidth="100" Width="150" Margin="10, 10, 10, 20"  Name="txtEditor2" />
+
+        <!-- Row3 -->
+        <StackPanel MinWidth="150" Grid.Row="3" Grid.Column="4"  Margin="10">
+            <ComboBox IsEditable="True" x:Name="ComboBoxA" Text="Select File Types" HorizontalAlignment="Left" Width="150">
+                <CheckBox Name="chkImage" Content="Image"/>
+                <CheckBox Name="chkVideo" Content="Video"/>
+                <CheckBox Name="chkAudio" Content="Audio"/>
+                <CheckBox Name="chkText"  Content="Text"/>
+                <CheckBox Name="chkDisc" Content="Disc and Media"/>
+                <CheckBox Name="chkCompressed" Content="Compressed"/>
+                <CheckBox Name="chkData" Content="Data and Database"/>
+                <CheckBox Name="chkExecute" Content="Executable"/>
+                <CheckBox Name="chkAll" Background="Red" Content="All Files"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- Row4 -->
+        <Button Grid.Row="4" Grid.Column="2" MaxWidth="75" Height="25"
+                Margin="105,20,0,0" FontWeight="Bold" Background="#07f23a" 
+                Name="Button" Click="StartBtn" Grid.ColumnSpan="2">Start</Button>
+
+        <Grid Grid.ColumnSpan="7" Grid.Column="1"  Grid.Row="5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+
+            <Popup Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" 
+                   Grid.RowSpan="3"  x:Name="Duplicate" Width="Auto" Height="Auto"
+                   Margin="10" AllowsTransparency="True">
+                <TextBlock x:Name="DuplicateText" Text="h +  {Binding Duplicate}" />
+            </Popup>
+        </Grid>
     </Grid>
 </Window>
